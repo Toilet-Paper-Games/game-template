@@ -1,0 +1,27 @@
+{
+  "uniqueName": "tpgames/game-template",
+  "displayName": "Game Template",
+  "description": "Basic TP Games template for creating new games.",
+
+  "mode": "dev",
+
+  "image": "%BASE_URL%/game-image.jpg",
+
+  "min-players": 1,
+  "max-players": 16,
+  "tags": ["co-op", "realtime", "2d"],
+
+  "hideFromList": false,
+  "premium": false,
+
+  "endpoints": {
+    "hoster": "%BASE_URL%/hoster/",
+    "controller": "%BASE_URL%/controller/",
+    "info": "%BASE_URL%/tpgames.json"
+  },
+
+  "author": "Justin Fernald",
+  "readme": "https://github.com/Toilet-Paper-Games/game-template/blob/master/README.md",
+  "issues": "https://github.com/Toilet-Paper-Games/game-template/issues",
+  "version": "0.0.1"
+}

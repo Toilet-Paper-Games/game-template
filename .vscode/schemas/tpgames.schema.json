@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GameInfo",
+  "type": "object",
+  "properties": {
+    "uniqueName": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "min-players": {
+      "type": "number",
+      "minimum": 1
+    },
+    "max-players": {
+      "type": "number",
+      "minimum": 1
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hideFromList": {
+      "type": "boolean"
+    },
+    "premium": {
+      "type": "boolean"
+    },
+    "endpoints": {
+      "$ref": "#/definitions/Endpoints"
+    },
+    "extra": {
+      "$ref": "#/definitions/Extra"
+    },
+    "author": {
+      "type": "string"
+    },
+    "readme": {
+      "type": "string"
+    },
+    "issues": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "uniqueName",
+    "displayName",
+    "description",
+    "mode",
+    "image",
+    "min-players",
+    "max-players",
+    "tags",
+    "hideFromList",
+    "premium",
+    "endpoints",
+    "author",
+    "readme",
+    "issues",
+    "version"
+  ],
+  "definitions": {
+    "Extra": {
+      "type": "object",
+      "properties": {
+        "handleGameExit": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Endpoints": {
+      "type": "object",
+      "properties": {
+        "hoster": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string"
+        },
+        "info": {
+          "type": "string"
+        }
+      },
+      "required": ["hoster", "controller", "info"]
+    }
+  }
+}
