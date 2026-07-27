@@ -1,10 +1,10 @@
 import { HosterCommunicator } from '@toilet-paper-games/core';
+import { makeAutoObservable } from 'mobx';
 
 import {
   GameTemplateGameDataDefinition,
   GameTransfer,
 } from '../../common/types/transfers';
-import { makeAutoObservable } from 'mobx';
 
 export class HosterGameModel {
   count = 0;

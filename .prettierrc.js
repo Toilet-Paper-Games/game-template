@@ -7,5 +7,4 @@ module.exports = {
   endOfLine: 'auto',
   arrowParens: 'always',
   jsxSingleQuote: false,
-  semi: true,
 };

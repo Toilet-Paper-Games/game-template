@@ -1,6 +1,7 @@
-import { observer } from 'mobx-react-lite';
-import { hosterGameModel } from '../App';
 import { absolute, Card, FlexColumn } from '@toilet-paper-games/ui';
+import { observer } from 'mobx-react-lite';
+
+import { hosterGameModel } from '../App';
 
 export const Game = observer(() => {
   const count = hosterGameModel.count;

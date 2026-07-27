@@ -12,7 +12,7 @@ export interface GameDataTransferStructure {
 
 export interface ButtonPressTransfer extends GameDataTransferStructure {
   type: GameTransfer.BUTTON_PRESS;
-  data: {};
+  data: Record<string, never>;
 }
 
 export interface CurrentButtonCountTransfer extends GameDataTransferStructure {

@@ -10,7 +10,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-            
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,6 +38,8 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install
         run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint:check
       - name: Build
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'

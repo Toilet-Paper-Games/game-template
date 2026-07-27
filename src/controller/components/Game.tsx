@@ -1,6 +1,7 @@
-import { observer } from 'mobx-react-lite';
-import { controllerGameModel } from '../App';
 import { absolute, Button, FlexColumn } from '@toilet-paper-games/ui';
+import { observer } from 'mobx-react-lite';
+
+import { controllerGameModel } from '../App';
 
 export const Game = observer(() => {
   const count = controllerGameModel.count;
