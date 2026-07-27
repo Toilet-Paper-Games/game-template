@@ -8,36 +8,40 @@ on:
       - master
 
 permissions:
-  contents: write
+  contents: read
+  packages: read
   pull-requests: write
-            
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [20.10.0]
+        node-version: [20.20.2]
     env:
-      # Add this to your repository's secrets to use it in the workflow
-      NPMRC_TOKEN: ${{ secrets.NPMRC_SECRET }}
-      NODE_AUTH_TOKEN: ${{ secrets.NPMRC_SECRET }}
+      NPMRC_TOKEN: ${{ github.token }}
+      NODE_AUTH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+          registry-url: https://npm.pkg.github.com
+          scope: '@toilet-paper-games'
       - name: Cache Modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install
         run: yarn --frozen-lockfile
+      - name: Lint
+        run: yarn lint:check
       - name: Build
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'

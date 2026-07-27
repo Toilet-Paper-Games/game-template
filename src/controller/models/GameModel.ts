@@ -1,10 +1,10 @@
 import { ControllerCommunicator } from '@toilet-paper-games/core';
+import { action, makeAutoObservable } from 'mobx';
 
 import {
   GameTemplateGameDataDefinition,
   GameTransfer,
 } from '../../common/types/transfers';
-import { action, makeAutoObservable } from 'mobx';
 
 export class ControllerGameModel {
   count = 0;
