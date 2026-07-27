@@ -8,7 +8,8 @@ on:
       - master
 
 permissions:
-  contents: write
+  contents: read
+  packages: read
   pull-requests: write
 
 jobs:
@@ -18,9 +19,8 @@ jobs:
       matrix:
         node-version: [20.10.0]
     env:
-      # Add this to your repository's secrets to use it in the workflow
-      NPMRC_TOKEN: ${{ secrets.NPMRC_SECRET }}
-      NODE_AUTH_TOKEN: ${{ secrets.NPMRC_SECRET }}
+      NPMRC_TOKEN: ${{ github.token }}
+      NODE_AUTH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,6 +31,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+          registry-url: https://npm.pkg.github.com
+          scope: '@toilet-paper-games'
       - name: Cache Modules
         uses: actions/cache@v4
         with:
